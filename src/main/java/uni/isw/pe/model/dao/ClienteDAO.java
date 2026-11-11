@@ -32,7 +32,7 @@ public class ClienteDAO {
     public Cliente buscarPorDni(String dni) throws SQLException {
         String sql = "SELECT dni, apellidos, nombre, fecha_nac, tfno FROM cliente WHERE dni = ?";
         try (Connection conn = DbConnection.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+            PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, dni);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
